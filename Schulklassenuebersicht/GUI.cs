@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schulklassenuebersicht
 {
-    interface IFachkonzept
+    interface GUI
     {
 
         void GUI();
