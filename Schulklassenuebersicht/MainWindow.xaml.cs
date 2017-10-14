@@ -22,7 +22,8 @@ namespace Schulklassenuebersicht
     {
         public MainWindow()
         {
-            InitializeComponent();
+            GUI thisGUI = new GUI();
+            //InitializeComponent();
         }
     }
 }
