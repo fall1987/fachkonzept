@@ -23,8 +23,7 @@ namespace Schulklassenuebersicht
         public MainWindow()
         {
             InitializeComponent();
-            Datenerhaltung db = new Datenerhaltung();
-            db.test();
+            Datenerhaltung db = new Datenerhaltung();          
         }
     }
 }
