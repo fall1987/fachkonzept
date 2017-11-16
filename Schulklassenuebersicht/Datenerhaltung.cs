@@ -133,7 +133,7 @@ namespace Schulklassenuebersicht
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
             SQLiteCommand cmd = connection.CreateCommand();
             connection.Open();
-            cmd.CommandText = "UPDATE Student SET Name = \"" + Name + "\" WHERE ID = " + StudentID + "; ";
+            cmd.CommandText = "UPDATE Student SET Name = \"" + Name + "\" WHERE ID = " + StudentID + "; ";            
             cmd.ExecuteNonQuery();
             connection.Close();
         }
@@ -154,7 +154,7 @@ namespace Schulklassenuebersicht
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
             SQLiteCommand cmd = connection.CreateCommand();
             connection.Open();
-            cmd.CommandText = "UPDATE Student SET Fk_ID_SchoolClass = " + SchoolClassID + " WHERE ID = " + StudentID + ";";
+            cmd.CommandText = "UPDATE Student SET Fk_ID_SchoolClass = " + SchoolClassID + " WHERE ID = " + StudentID + ";";           
             cmd.ExecuteNonQuery();
             connection.Close();
         }
