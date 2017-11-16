@@ -15,19 +15,20 @@ using System.Windows.Shapes;
 
 namespace Schulklassenuebersicht
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
+        
     {
+        Fachkonzept fachkonzept = new Fachkonzept();
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            LstBxStudent.DataContext = fachkonzept.GetAllStudents();
         }
 
         private void LstBxSchollClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+ 
         }
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
@@ -42,7 +43,7 @@ namespace Schulklassenuebersicht
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
-
+            LstBxStudent.DataContext = fachkonzept.GetAllStudents();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)

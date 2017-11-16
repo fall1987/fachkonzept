@@ -14,19 +14,25 @@ using System.Windows.Shapes;
 
 namespace Schulklassenuebersicht
 {
-    /// <summary>
-    /// Interaktionslogik für WindowAdd.xaml
-    /// </summary>
     public partial class WindowAdd : Window
     {
+        Fachkonzept fachkonzept = new Fachkonzept();
         public WindowAdd()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            fachkonzept.AddStudent(TxbStudentName.Text);
+            MessageBox.Show("Schüler erfolgreich hinzugefügt");
+            TxbStudentName.Text = "";
         }
     }
 }
