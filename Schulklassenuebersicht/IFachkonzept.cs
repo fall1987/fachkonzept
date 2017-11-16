@@ -8,5 +8,6 @@ namespace Schulklassenuebersicht
 {
     interface IFachkonzept
     {
+        
     }
 }
