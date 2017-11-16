@@ -154,7 +154,7 @@ namespace Schulklassenuebersicht
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
             SQLiteCommand cmd = connection.CreateCommand();
             connection.Open();
-            cmd.CommandText = "UPDATE Student SET Fk_ID_SchoolClass = " + SchoolClassID + " WHERE ID = " + StudentID + ";";           
+            cmd.CommandText = String.Format("UPDATE Student SET Fk_ID_SchoolClass = {0} WHERE ID = {1};", SchoolClassID, StudentID);
             cmd.ExecuteNonQuery();
             connection.Close();
         }

@@ -35,8 +35,9 @@ namespace Schulklassenuebersicht
 
         public void ChangeStudent(int id, string name, int classId)
         {            
+            
             datenHaltung.UpdateStudent(id, name);
-            datenHaltung.SetRelation(id, classId);
+            datenHaltung.SetRelation(classId, id);
         }
 
         public void RemoveStudent(int StudentId)

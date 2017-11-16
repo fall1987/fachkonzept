@@ -36,8 +36,7 @@ namespace Schulklassenuebersicht
                 int studenId = Int16.Parse((LstBxVwStudent.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
                 int classId = Int16.Parse((LstBxVwSchoolClasses.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
                 fachkonzept.ChangeStudent(studenId, studentName, classId);
-
-                MessageBox.Show(studentName + " " + studenId + " " + classId);
+                UpdateListBxViews();
             } catch (Exception es)
             {
                MessageBox.Show(es.StackTrace);

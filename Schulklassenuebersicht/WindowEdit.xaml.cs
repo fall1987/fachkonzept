@@ -27,6 +27,7 @@ namespace Schulklassenuebersicht
         {
             fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 2);
             MessageBox.Show("Schüler erfolgreich bearbeitet");
+            this.Close();
         }
 
         private void BtnAbort_Click(object sender, RoutedEventArgs e)
