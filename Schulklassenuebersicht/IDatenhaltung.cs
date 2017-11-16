@@ -19,5 +19,7 @@ namespace Schulklassenuebersicht
        DataTable GetAllStudent(int SchoolclassID);
        void RemoveStudent(int id);
        void SetRelation(int SchoolClassID, int StudentID);
+       void RemoveRelation(int SchoolClassID);
+       void RemoveRelation(int SchoolClassID,int StudentID);
     }
 }
