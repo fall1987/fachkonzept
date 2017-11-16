@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Data;
 
 namespace Schulklassenuebersicht
 {
     interface IDatenhaltung
     {
-       void CreateTable(string name);
-       void SetSchoolClass(SchoolClass schoolclass);
-       SchoolClass GetSchoolClass(string id);
-       ArrayList GetAllSchoolClass();
-       void RemoveSchoolClass(SchoolClass schoolclass);
-       void SetStudent(Student student);
-       Student GetStudent();
-       ArrayList GetAllStudent(SchoolClass schoolclass);
-       void RemoveStudent(Student student);
-       void SetRelation(SchoolClass schoolclass, Student student);
+       void SetSchoolClass(string name);
+       DataTable GetSchoolClass(int id);
+       DataTable GetAllSchoolClass();
+       void RemoveSchoolClass(int id);
+       void SetStudent(string name);
+       DataTable GetStudent();
+       DataTable GetAllStudent(int SchoolclassID);
+       void RemoveStudent(int id);
+       void SetRelation(int SchoolClassID, int StudentID);
     }
 }
