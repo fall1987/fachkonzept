@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
-using System.Data;
+﻿using System.Data;
 
 namespace Schulklassenuebersicht
 {
@@ -15,7 +9,7 @@ namespace Schulklassenuebersicht
        DataTable GetAllSchoolClass();
        void RemoveSchoolClass(int id);
        void SetStudent(string name);
-       DataTable GetStudent();
+       DataTable GetStudent(int id);
        DataTable GetAllStudent(int SchoolclassID);
        void RemoveStudent(int id);
        void SetRelation(int SchoolClassID, int StudentID);
