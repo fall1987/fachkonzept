@@ -11,13 +11,13 @@
             <RowDefinition Height="112*"/>
             <RowDefinition Height="209*"/>
         </Grid.RowDefinitions>
-        <ListBox HorizontalAlignment="Left" Height="125" Margin="54,48,0,0" VerticalAlignment="Top" Width="100" Grid.RowSpan="2"/>
-        <ListBox HorizontalAlignment="Left" Height="249" Margin="318,48,0,0" VerticalAlignment="Top" Width="154" Grid.RowSpan="2"/>
-        <Button x:Name="BtnShow" Content="Anzeigen" HorizontalAlignment="Left" Margin="54,85.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
-        <Button x:Name="BtnEdit" Content="Hinzufügen" HorizontalAlignment="Left" Margin="54,109.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
-        <Button x:Name="BtnAdd" Content="Bearbeiten" HorizontalAlignment="Left" Margin="54,133.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
-        <Button x:Name="BtnDelete" Content="Löschen" HorizontalAlignment="Left" Margin="54,158.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
-        <Button x:Name="BtnLink" Content="Button" HorizontalAlignment="Left" Margin="177,93,0,0" VerticalAlignment="Top" Width="118" Height="22" Grid.RowSpan="2"/>
+        <ListBox x:Name="LstBxSchollClass" HorizontalAlignment="Left" Height="125" Margin="54,48,0,0" VerticalAlignment="Top" Width="100" Grid.RowSpan="2" SelectionChanged="LstBxSchollClass_SelectionChanged"/>
+        <ListBox x:Name="LstBxStudent" HorizontalAlignment="Left" Height="249" Margin="318,48,0,0" VerticalAlignment="Top" Width="154" Grid.RowSpan="2" SelectionChanged="LstBxStudent_SelectionChanged"/>
+        <Button x:Name="BtnShow" Content="Anzeigen" HorizontalAlignment="Left" Margin="54,85.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnShow_Click"/>
+        <Button x:Name="BtnEdit" Content="Hinzufügen" HorizontalAlignment="Left" Margin="54,109.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnEdit_Click"/>
+        <Button x:Name="BtnAdd" Content="Bearbeiten" HorizontalAlignment="Left" Margin="54,133.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnAdd_Click"/>
+        <Button x:Name="BtnDelete" Content="Löschen" HorizontalAlignment="Left" Margin="54,159,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnDelete_Click"/>
+        <Button x:Name="BtnLink" Content="Zuweisen" HorizontalAlignment="Left" Margin="177,93,0,0" VerticalAlignment="Top" Width="118" Height="22" Grid.RowSpan="2" Click="BtnLink_Click"/>
         <TextBox x:Name="TxbSchoolClass" HorizontalAlignment="Left" Height="23" Margin="54,10,0,0" TextWrapping="Wrap" Text="Schulklasse" VerticalAlignment="Top" Width="100" FontWeight="Bold" TextAlignment="Center" FontSize="14" IsEnabled="False"/>
         <TextBox x:Name="TxbStudent" HorizontalAlignment="Left" Height="23" Margin="318,10,0,0" TextWrapping="Wrap" Text="Schüler" VerticalAlignment="Top" Width="154" TextAlignment="Center" FontWeight="Bold" FontSize="14" IsEnabled="False"/>
     </Grid>

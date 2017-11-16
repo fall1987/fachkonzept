@@ -24,5 +24,40 @@ namespace Schulklassenuebersicht
         {
             InitializeComponent();
         }
+
+        private void LstBxSchollClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnLink_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LstBxStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnShow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
