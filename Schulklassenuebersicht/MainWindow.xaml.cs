@@ -81,9 +81,12 @@ namespace Schulklassenuebersicht
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LstBxVwStudent.DisplayMemberPath = "ID";
-            LstBxVwStudent.DisplayMemberPath = "Name";
-            LstBxVwStudent.ItemsSource = fachkonzept.GetStudentsByClass(Convert.ToInt32(((System.Data.DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString())).DefaultView;
+            if ((sender as ListView).SelectedItem != null)
+            {
+                LstBxVwStudent.DisplayMemberPath = "ID";
+                LstBxVwStudent.DisplayMemberPath = "Name";
+                LstBxVwStudent.ItemsSource = fachkonzept.GetStudentsByClass(Convert.ToInt32(((System.Data.DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString())).DefaultView;
+            }
         }
 
 
