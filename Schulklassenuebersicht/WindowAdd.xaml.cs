@@ -29,7 +29,7 @@ namespace Schulklassenuebersicht
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            fachkonzept.AddSchoolClass(TxbStudentName.Text);
+            fachkonzept.AddStudent(TxbStudentName.Text);
             MessageBox.Show("Schüler erfolgreich angelegt");
             TxbStudentName.Text = "";
         }
