@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Schulklassenuebersicht
 {
-    class Fachkonzept
+    class Fachkonzept : IFachkonzept
     {
+        private Datenerhaltung datenHaltung;
     }
 }
