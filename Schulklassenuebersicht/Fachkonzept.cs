@@ -23,7 +23,7 @@ namespace Schulklassenuebersicht
             return students = new DataTable();
         }
 
-        public void ChangeStudent(string name)
+        public void ChangeStudent(int id, string name, int classId)
         {
 
         }
