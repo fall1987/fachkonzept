@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schulklassenuebersicht"
         mc:Ignorable="d"
-        Title="Hinzufügen" Height="145" Width="350" ResizeMode="NoResize">
+        Title="Bearbeiten" Height="145" Width="350" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="BtnSave" Content="Speichern" HorizontalAlignment="Left" Margin="257,84,0,0" VerticalAlignment="Top" Width="75" Click="BtnSave_Click" />
         <Label Content="Name des Schülers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
