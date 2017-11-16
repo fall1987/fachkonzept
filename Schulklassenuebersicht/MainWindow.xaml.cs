@@ -23,27 +23,26 @@ namespace Schulklassenuebersicht
         public MainWindow()
         {
             InitializeComponent();
-            LstBxStudent.DataContext = fachkonzept.GetAllStudents();
+            LstBxVwStudent.DisplayMemberPath = "ID";
+            LstBxVwStudent.DisplayMemberPath = "Name";
+            LstBxVwStudent.ItemsSource = fachkonzept.GetAllStudents().DefaultView;
+
+            LstBxVwSchoolClasses.DisplayMemberPath = "ID";
+            LstBxVwSchoolClasses.DisplayMemberPath = "Name";
+            LstBxVwSchoolClasses.ItemsSource = fachkonzept.GetAllClasses().DefaultView;
+
+
         }
 
-        private void LstBxSchollClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
- 
-        }
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void LstBxStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
-            LstBxStudent.DataContext = fachkonzept.GetAllStudents();
+
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -61,6 +60,16 @@ namespace Schulklassenuebersicht
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LstBxVwSchoolClasses_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LstBxVwStudent_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
 
         }
