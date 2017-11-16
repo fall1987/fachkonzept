@@ -15,6 +15,7 @@ namespace Schulklassenuebersicht
 
         public DataTable GetAllClasses()
         {
+            
             return schoolClasses = new DataTable();            
         }
 
