@@ -24,24 +24,18 @@ namespace Schulklassenuebersicht
         public MainWindow()
         {
             InitializeComponent();
-
-            LstBxVwStudent.DisplayMemberPath = "ID";
-            LstBxVwStudent.DisplayMemberPath = "Name";
-            LstBxVwStudent.ItemsSource = fachkonzept.GetAllStudents().DefaultView;
-
-            LstBxVwSchoolClasses.DisplayMemberPath = "ID";
-            LstBxVwSchoolClasses.DisplayMemberPath = "Name";
-            LstBxVwSchoolClasses.ItemsSource = fachkonzept.GetAllClasses().DefaultView;
+            UpdateListBxViews();
+            
         }
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
-            
+            UpdateListBxViews();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -65,14 +59,13 @@ namespace Schulklassenuebersicht
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            WindowAdd wa = new WindowAdd();
-            wa.Show();
+
 
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            fachkonzept.RemoveStudent(Convert.ToInt16(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString()));
+
         }
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -84,6 +77,17 @@ namespace Schulklassenuebersicht
         private void LstBxVwStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //MessageBox.Show(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString());
+        }
+
+        private void UpdateListBxViews()
+        {
+            LstBxVwStudent.DisplayMemberPath = "ID";
+            LstBxVwStudent.DisplayMemberPath = "Name";
+            LstBxVwStudent.ItemsSource = fachkonzept.GetAllStudents().DefaultView;
+
+            LstBxVwSchoolClasses.DisplayMemberPath = "ID";
+            LstBxVwSchoolClasses.DisplayMemberPath = "Name";
+            LstBxVwSchoolClasses.ItemsSource = fachkonzept.GetAllClasses().DefaultView;
         }
     }
 }
