@@ -41,7 +41,7 @@ namespace Schulklassenuebersicht
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -65,13 +65,14 @@ namespace Schulklassenuebersicht
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowAdd wa = new WindowAdd();
+            wa.Show();
 
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            fachkonzept.RemoveStudent(Convert.ToInt16(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString()));
         }
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
