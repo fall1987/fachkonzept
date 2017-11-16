@@ -38,6 +38,118 @@ namespace Schulklassenuebersicht
             SQLiteCommand cmd = connection.CreateCommand();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             connection.Open();
+            cmd.CommandText="INSERT INTO SchoolClass (Name) VALUES ('" + name + "');" ;
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public DataTable GetSchoolClass(int id)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+            cmd.CommandText = "Select * FROM SCHOOLCLASS WHERE ID like " + id + ";";
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+        public DataTable GetAllSchoolClass()
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+            cmd.CommandText = "Select * FROM SCHOOLCLASS ;";
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            connection.Close();
+            return dt;
+        }
+        public void RemoveSchoolClass(int id)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "DELETE FROM SchoolClass Where ID like "+ id+";";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void SetStudent(string name)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "INSERT INTO Student (name) VALUES ('" + name + "');";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public DataTable GetStudent(int id)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+            cmd.CommandText = "Select * FROM Student WHERE ID like " + id + ";";
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+        public DataTable GetAllStudent(int SchoolclassID)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+            cmd.CommandText = "Select * FROM Student ;";
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+        public void RemoveStudent(int id)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "DELETE FROM Student Where ID like " + id + ";";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void SetRelation(int SchoolClassID, int StudentID)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "UPDATE Student SET Fk_ID_SchoolClass = " + SchoolClassID + " WHERE ID = " + StudentID + ";";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void RemoveRelation(int SchoolClassID)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "UPDATE STUDENT SET Fk_ID_SchoolClass = NULL WHERE Fk_ID_SchoolClass = "+SchoolClassID+";";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void RemoveRelation(int SchoolClassID, int StudentID)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "UPDATE STUDENT SET Fk_ID_SchoolClass = NULL WHERE Fk_ID_SchoolClass = " + SchoolClassID + " AND ID = "+StudentID+";";
+            cmd.ExecuteNonQuery();
+            connection.Close();
         }
         #endregion
 

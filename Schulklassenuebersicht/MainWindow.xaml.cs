@@ -22,8 +22,7 @@ namespace Schulklassenuebersicht
     {
         public MainWindow()
         {
-            InitializeComponent();
-            Datenerhaltung db = new Datenerhaltung();          
+            InitializeComponent();           
         }
 
         private void LstBxSchollClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
