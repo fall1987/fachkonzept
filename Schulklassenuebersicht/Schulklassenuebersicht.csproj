@@ -85,7 +85,6 @@
     <Compile Include="Datenerhaltung.cs" />
     <Compile Include="Fachkonzept.cs" />
     <Compile Include="IDatenhaltung.cs" />
-    <Compile Include="GUI.cs" />
     <Compile Include="IFachkonzept.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
