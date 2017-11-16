@@ -14,12 +14,12 @@ namespace Schulklassenuebersicht
 
         public List<string> GetAllClasses()
         {
-            
+            return schoolClasses = new List<string>();            
         }
 
         public List<string> GetStudentsByClass(string schoolClass)
         {
-
+            return students = new List<string>();
         }
 
         public void ChangeStudent(string name)
