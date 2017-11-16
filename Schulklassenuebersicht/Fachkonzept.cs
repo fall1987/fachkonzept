@@ -15,8 +15,12 @@ namespace Schulklassenuebersicht
 
         public DataTable GetAllClasses()
         {
-            
-            return schoolClasses = new DataTable();            
+            return schoolClasses = datenHaltung.GetAllSchoolClass();               
+        }
+
+        public DataTable GetAllStudents()
+        {
+            return students = new DataTable();
         }
 
         public DataTable GetStudentsByClass(string schoolClass)
