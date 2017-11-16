@@ -42,5 +42,14 @@ namespace Schulklassenuebersicht
         {
 
         }
+
+        public void AddStudent(string name)
+        {
+            datenHaltung.SetStudent(name);
+        }
+        public void AddSchoolClass(string name)
+        {
+            datenHaltung.SetSchoolClass(name);
+        }
     }
 }
