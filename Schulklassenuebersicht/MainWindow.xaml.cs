@@ -59,8 +59,8 @@ namespace Schulklassenuebersicht
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
-
+            WindowAdd wa = new WindowAdd();
+            wa.Show();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
