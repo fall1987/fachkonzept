@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
-using System.Windows;
 using System.IO;
 using System.Data;
 
 namespace Schulklassenuebersicht
 {
-    class Datenerhaltung
+    class Datenerhaltung :IDatenhaltung
     {
      
         /// <summary>
@@ -34,7 +29,17 @@ namespace Schulklassenuebersicht
             {
                 CreateDatabase(path);
             }
-        }   
+        }
+        #region IDatenhaltung
+        public void SetSchoolClass(string name)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+        }
+        #endregion
 
         #region initialize Class
         private static string GetProjectPath()
