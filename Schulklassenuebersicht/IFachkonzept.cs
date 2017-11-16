@@ -10,7 +10,7 @@ namespace Schulklassenuebersicht
     interface IFachkonzept
     {
         DataTable GetAllClasses();
-        DataTable GetStudentsByClass(string schoolClass);
+        DataTable GetStudentsByClass(int SchoolClassId);
         void ChangeStudent(int id, string name, int classId);
         void RemoveStudent(string name);
         void RemoveClass(string schoolClass);

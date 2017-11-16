@@ -19,13 +19,13 @@ namespace Schulklassenuebersicht
         }
 
         public DataTable GetAllStudents()
-        {   
-            return students = new DataTable();
+        {
+            return students = datenHaltung.GetAllStudent();
         }
 
-        public DataTable GetStudentsByClass(string schoolClass)
+        public DataTable GetStudentsByClass(int schoolClassId)
         {
-            return students = new DataTable();
+            return students = datenHaltung.GetAllStudentByClass(schoolClassId);
         }
 
         public void ChangeStudent(int id, string name, int classId)
