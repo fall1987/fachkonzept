@@ -29,7 +29,6 @@ namespace Schulklassenuebersicht
                     Console.WriteLine(item.ToString());
                 }
             }
-            Console.ReadKey();
             return students;
         }
 
