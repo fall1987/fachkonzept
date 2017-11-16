@@ -70,8 +70,8 @@ namespace Schulklassenuebersicht
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
-
+            WindowAdd wa = new WindowAdd();
+            wa.Show();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -81,7 +81,9 @@ namespace Schulklassenuebersicht
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //MessageBox.Show(((System.Data.DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString());
+            LstBxVwStudent.DisplayMemberPath = "ID";
+            LstBxVwStudent.DisplayMemberPath = "Name";
+            LstBxVwStudent.ItemsSource = fachkonzept.GetStudentsByClass(Convert.ToInt32(((System.Data.DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString())).DefaultView;
         }
 
 
