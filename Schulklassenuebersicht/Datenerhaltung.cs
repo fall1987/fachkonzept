@@ -99,7 +99,8 @@ namespace Schulklassenuebersicht
             adapter.Fill(dt);
             return dt;
         }
-        public DataTable GetAllStudent(int SchoolclassID)
+
+        public DataTable GetAllStudent()
         {
             string path = GetProjectPath();
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
@@ -107,6 +108,19 @@ namespace Schulklassenuebersicht
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             connection.Open();
             cmd.CommandText = "Select * FROM Student ;";
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetAllStudentByClass(int SchoolclassID)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+            cmd.CommandText = String.Format("Select * FROM Student WHERE Fk_ID_SchoolClass = {0};",SchoolclassID);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             return dt;

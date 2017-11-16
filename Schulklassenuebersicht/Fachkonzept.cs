@@ -30,7 +30,7 @@ namespace Schulklassenuebersicht
 
         public void ChangeStudent(int id, string name, int classId)
         {
-
+            
         }
 
         public void RemoveStudent(string name)
