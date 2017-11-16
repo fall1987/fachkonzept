@@ -67,6 +67,7 @@ namespace Schulklassenuebersicht
             connection.Close();
             return dt;
         }
+
         public void RemoveSchoolClass(int id)
         {
             string path = GetProjectPath();

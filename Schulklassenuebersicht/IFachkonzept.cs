@@ -12,8 +12,8 @@ namespace Schulklassenuebersicht
         DataTable GetAllClasses();
         DataTable GetStudentsByClass(int SchoolClassId);
         void ChangeStudent(int id, string name, int classId);
-        void RemoveStudent(string name);
-        void RemoveClass(string schoolClass);
+        void RemoveStudent(int StudentId);
+        void RemoveClass(int SchoolClassId);
 
         void AddStudent(string name);
         void AddSchoolClass(string name);
