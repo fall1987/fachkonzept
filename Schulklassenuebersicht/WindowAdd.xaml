@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Hinzufügen" Height="145" Width="350" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Hinzufügen" HorizontalAlignment="Left" Margin="257,84,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="BtnSave" Content="Speichern" HorizontalAlignment="Left" Margin="257,84,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Name des Schülers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="125,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
+        <TextBox x:Name="TxbStudentName" HorizontalAlignment="Left" Height="23" Margin="125,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
         <Label Content="Schulklasse" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="258,38,0,0" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="177,84,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ComboBox x:Name="CmbBxSchoolClass" HorizontalAlignment="Left" Margin="258,38,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="BtnAbort" Content="Abbrechen" HorizontalAlignment="Left" Margin="177,84,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

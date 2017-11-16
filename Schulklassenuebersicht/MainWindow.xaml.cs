@@ -47,12 +47,16 @@ namespace Schulklassenuebersicht
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowAdd wa = new WindowAdd();
+            wa.Show();
+            wa.TxbStudentName.Text = "Mapfred";
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowAdd wa = new WindowAdd();
+            wa.Show();
+            
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
