@@ -15,21 +15,21 @@ namespace Schulklassenuebersicht
 
         public DataTable GetAllClasses()
         {
-            schoolClasses = datenHaltung.GetAllSchoolClass();
+            schoolClasses = SortByName(datenHaltung.GetAllSchoolClass());
 
             return schoolClasses;
         }
 
         public DataTable GetAllStudents()
         {
-            students = datenHaltung.GetAllStudent();
+            students = SortByName(datenHaltung.GetAllStudent());
             
             return students;
         }
 
         public DataTable GetStudentsByClass(int schoolClassId)
         {
-            students = datenHaltung.GetAllStudentByClass(schoolClassId);
+            students = SortByName(datenHaltung.GetAllStudentByClass(schoolClassId));
 
             return students;
         }
@@ -57,6 +57,12 @@ namespace Schulklassenuebersicht
         public void AddSchoolClass(string name)
         {
             datenHaltung.SetSchoolClass(name);
+        }
+
+        private DataTable SortByName(DataTable data)
+        {            
+            data.DefaultView.Sort = "ID ";
+            return data;
         }
     }
 }
