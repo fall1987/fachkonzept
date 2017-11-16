@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace Schulklassenuebersicht
 {
-    /// <summary>
-    /// Interaktionslogik für WindowEdit.xaml
-    /// </summary>
+
     public partial class WindowEdit : Window
     {
         Fachkonzept fachkonzept = new Fachkonzept();
@@ -27,7 +25,6 @@ namespace Schulklassenuebersicht
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            fachkonzept.AddStudent(TxbStudentName.Text);
             fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 1);
             MessageBox.Show("Schüler erfolgreich bearbeitet");
         }
