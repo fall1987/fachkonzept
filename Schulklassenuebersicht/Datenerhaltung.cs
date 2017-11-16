@@ -108,7 +108,7 @@ namespace Schulklassenuebersicht
             SQLiteCommand cmd = connection.CreateCommand();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             connection.Open();
-            cmd.CommandText = "Select * FROM Student ;";
+            cmd.CommandText = "Select ID, Name FROM Student ;";
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             return dt;
