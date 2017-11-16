@@ -108,7 +108,7 @@ namespace Schulklassenuebersicht
             SQLiteCommand cmd = connection.CreateCommand();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             connection.Open();
-            cmd.CommandText = "Select ID, Name FROM Student ;";
+            cmd.CommandText = "Select * FROM Student ;";
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             return dt;
@@ -127,13 +127,13 @@ namespace Schulklassenuebersicht
             return dt;
         }
 
-        public void UpdateStudent(int StudentID)
+        public void UpdateStudent(int StudentID, string Name)
         {
             string path = GetProjectPath();
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
             SQLiteCommand cmd = connection.CreateCommand();
             connection.Open();
-            cmd.CommandText = "UPDATE Student SET Where ID like " + id + ";";
+            cmd.CommandText = "UPDATE Student SET Name = " + Name + " WHERE ID = " + StudentID + "; ";
             cmd.ExecuteNonQuery();
             connection.Close();
         }

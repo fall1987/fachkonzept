@@ -15,32 +15,29 @@ namespace Schulklassenuebersicht
 
         public DataTable GetAllClasses()
         {
-            return schoolClasses = datenHaltung.GetAllSchoolClass();               
+            schoolClasses = datenHaltung.GetAllSchoolClass();
+
+            return schoolClasses;
         }
 
         public DataTable GetAllStudents()
         {
             students = datenHaltung.GetAllStudent();
-
-            foreach (DataRow dataRow in students.Rows)
-            {
-                foreach (var item in dataRow.ItemArray)
-                {
-                    Console.WriteLine(item.ToString());
-                }
-            }
+            
             return students;
         }
 
         public DataTable GetStudentsByClass(int schoolClassId)
         {
+            students = datenHaltung.GetAllStudentByClass(schoolClassId);
 
-            return students = datenHaltung.GetAllStudentByClass(schoolClassId);
+            return students;
         }
 
         public void ChangeStudent(int id, string name, int classId)
         {
-           
+            datenHaltung.UpdateStudent(id, name);
+            datenHaltung.SetRelation(id, classId);
         }
 
         public void RemoveStudent(int StudentId)
