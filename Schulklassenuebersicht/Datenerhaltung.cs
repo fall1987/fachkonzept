@@ -49,7 +49,7 @@ namespace Schulklassenuebersicht
             SQLiteCommand cmd = connection.CreateCommand();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             connection.Open();
-            cmd.CommandText = "Select * FROM SCHOOLCLASS WHERE ID like " + id + ";";
+            cmd.CommandText = "Select * FROM SchoolClass WHERE ID like " + id + ";";
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             return dt;
@@ -61,7 +61,7 @@ namespace Schulklassenuebersicht
             SQLiteCommand cmd = connection.CreateCommand();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             connection.Open();
-            cmd.CommandText = "Select * FROM SCHOOLCLASS ;";
+            cmd.CommandText = "Select * FROM SchoolClass ;";
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             connection.Close();
@@ -151,7 +151,7 @@ namespace Schulklassenuebersicht
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
             SQLiteCommand cmd = connection.CreateCommand();
             connection.Open();
-            cmd.CommandText = "UPDATE STUDENT SET Fk_ID_SchoolClass = NULL WHERE Fk_ID_SchoolClass = "+SchoolClassID+";";
+            cmd.CommandText = "UPDATE Student SET Fk_ID_SchoolClass = NULL WHERE Fk_ID_SchoolClass = "+SchoolClassID+";";
             cmd.ExecuteNonQuery();
             connection.Close();
         }
@@ -161,7 +161,7 @@ namespace Schulklassenuebersicht
             SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
             SQLiteCommand cmd = connection.CreateCommand();
             connection.Open();
-            cmd.CommandText = "UPDATE STUDENT SET Fk_ID_SchoolClass = NULL WHERE Fk_ID_SchoolClass = " + SchoolClassID + " AND ID = "+StudentID+";";
+            cmd.CommandText = "UPDATE Student SET Fk_ID_SchoolClass = NULL WHERE Fk_ID_SchoolClass = " + SchoolClassID + " AND ID = "+StudentID+";";
             cmd.ExecuteNonQuery();
             connection.Close();
         }
