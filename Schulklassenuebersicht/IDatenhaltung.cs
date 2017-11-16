@@ -16,5 +16,6 @@ namespace Schulklassenuebersicht
        void SetRelation(int SchoolClassID, int StudentID);
        void RemoveRelation(int SchoolClassID);
        void RemoveRelation(int SchoolClassID,int StudentID);
+       void UpdateStudent(int StudentID);
     }
 }

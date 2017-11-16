@@ -126,6 +126,18 @@ namespace Schulklassenuebersicht
             adapter.Fill(dt);
             return dt;
         }
+
+        public void UpdateStudent(int StudentID)
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            connection.Open();
+            cmd.CommandText = "UPDATE Student SET Where ID like " + id + ";";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
         public void RemoveStudent(int id)
         {
             string path = GetProjectPath();
