@@ -20,7 +20,6 @@ namespace Schulklassenuebersicht
         public WindowAdd()
         {
             InitializeComponent();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -31,8 +30,9 @@ namespace Schulklassenuebersicht
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             fachkonzept.AddStudent(TxbStudentName.Text);
+            fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 1 );
             MessageBox.Show("Schüler erfolgreich hinzugefügt");
-            TxbStudentName.Text = "";
+            
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace Schulklassenuebersicht
 {
@@ -23,6 +24,7 @@ namespace Schulklassenuebersicht
         public MainWindow()
         {
             InitializeComponent();
+
             LstBxVwStudent.DisplayMemberPath = "ID";
             LstBxVwStudent.DisplayMemberPath = "Name";
             LstBxVwStudent.ItemsSource = fachkonzept.GetAllStudents().DefaultView;
@@ -30,10 +32,7 @@ namespace Schulklassenuebersicht
             LstBxVwSchoolClasses.DisplayMemberPath = "ID";
             LstBxVwSchoolClasses.DisplayMemberPath = "Name";
             LstBxVwSchoolClasses.ItemsSource = fachkonzept.GetAllClasses().DefaultView;
-
-
         }
-
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
         {
@@ -48,8 +47,20 @@ namespace Schulklassenuebersicht
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             WindowAdd wa = new WindowAdd();
-            wa.Show();
-            wa.TxbStudentName.Text = "Mapfred";
+            
+            if (LstBxVwStudent.SelectedItems.Count != 0)
+            {
+                wa.TxbStudentName.Text = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[1].ToString();
+                if (((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString() != "")
+                {
+                wa.StudentID.Content = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString();
+                }
+                wa.Show();
+            }
+            else
+            {
+                MessageBox.Show("Schüler auswählen");
+            }
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -64,14 +75,15 @@ namespace Schulklassenuebersicht
 
         }
 
-        private void LstBxVwSchoolClasses_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //MessageBox.Show(((System.Data.DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString());
         }
 
-        private void LstBxVwStudent_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void LstBxVwStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString());
         }
     }
 }
