@@ -19,7 +19,7 @@ namespace Schulklassenuebersicht
         }
 
         public DataTable GetAllStudents()
-        {
+        {   
             return students = new DataTable();
         }
 
