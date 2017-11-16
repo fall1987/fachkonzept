@@ -30,6 +30,17 @@ namespace Schulklassenuebersicht
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                string studentName = (LstBxVwStudent.SelectedItem as DataRowView).Row.ItemArray[1].ToString();
+                int studenId = Int16.Parse((LstBxVwStudent.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+                int classId = Int16.Parse((LstBxVwSchoolClasses.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+                fachkonzept.ChangeStudent(studenId, studentName, classId);
+            } catch (Exception es)
+            {
+                Console.WriteLine(es.StackTrace);
+            }
+            
             
         }
 
@@ -44,10 +55,10 @@ namespace Schulklassenuebersicht
 
             if (LstBxVwStudent.SelectedItems.Count != 0)
             {
-                we.TxbStudentName.Text = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[1].ToString();
+                we.TxbStudentName.Text = ((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[1].ToString();
                 if (((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString() != "")
                 {
-                    we.StudentID.Content = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString();
+                    we.StudentID.Content = ((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString();
                 }
                 we.Show();
             }
