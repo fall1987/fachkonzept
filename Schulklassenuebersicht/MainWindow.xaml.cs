@@ -46,16 +46,16 @@ namespace Schulklassenuebersicht
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            WindowAdd wa = new WindowAdd();
-            
+            WindowEdit we = new WindowEdit();
+
             if (LstBxVwStudent.SelectedItems.Count != 0)
             {
-                wa.TxbStudentName.Text = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[1].ToString();
+                we.TxbStudentName.Text = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[1].ToString();
                 if (((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString() != "")
                 {
-                wa.StudentID.Content = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString();
+                    we.StudentID.Content = ((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString();
                 }
-                wa.Show();
+                we.Show();
             }
             else
             {
@@ -65,9 +65,8 @@ namespace Schulklassenuebersicht
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            WindowAdd wa = new WindowAdd();
-            wa.Show();
-            
+
+
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

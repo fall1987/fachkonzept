@@ -14,22 +14,27 @@ using System.Windows.Shapes;
 
 namespace Schulklassenuebersicht
 {
-    public partial class WindowAdd : Window
+    /// <summary>
+    /// Interaktionslogik für WindowEdit.xaml
+    /// </summary>
+    public partial class WindowEdit : Window
     {
         Fachkonzept fachkonzept = new Fachkonzept();
-        public WindowAdd()
+        public WindowEdit()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            fachkonzept.AddStudent(TxbStudentName.Text);
+            fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 1);
+            MessageBox.Show("Schüler erfolgreich bearbeitet");
+        }
 
+        private void BtnAbort_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
