@@ -5,20 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schulklassenuebersicht"
         mc:Ignorable="d"
-        Title="MainWindow" Height="374" Width="525">
+        Title="Schulklassenübersicht" Height="375" Width="525" ResizeMode="NoResize">
     <Grid Margin="0,0,0,-0.2" HorizontalAlignment="Left" Width="518">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="32*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="112*"/>
-            <RowDefinition Height="209*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="48*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="LstBxSchollClass" HorizontalAlignment="Left" Height="125" Margin="54,48,0,0" VerticalAlignment="Top" Width="100" Grid.RowSpan="2" SelectionChanged="LstBxSchollClass_SelectionChanged"/>
-        <ListBox x:Name="LstBxStudent" HorizontalAlignment="Left" Height="249" Margin="318,48,0,0" VerticalAlignment="Top" Width="154" Grid.RowSpan="2" SelectionChanged="LstBxStudent_SelectionChanged"/>
-        <Button x:Name="BtnShow" Content="Anzeigen" HorizontalAlignment="Left" Margin="54,85.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnShow_Click"/>
-        <Button x:Name="BtnEdit" Content="Hinzufügen" HorizontalAlignment="Left" Margin="54,109.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnEdit_Click"/>
-        <Button x:Name="BtnAdd" Content="Bearbeiten" HorizontalAlignment="Left" Margin="54,133.8,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnDelete" Content="Löschen" HorizontalAlignment="Left" Margin="54,159,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="BtnDelete_Click"/>
-        <Button x:Name="BtnLink" Content="Zuweisen" HorizontalAlignment="Left" Margin="177,93,0,0" VerticalAlignment="Top" Width="118" Height="22" Grid.RowSpan="2" Click="BtnLink_Click"/>
+        <ListBox x:Name="LstBxSchollClass" HorizontalAlignment="Left" Height="124" Margin="54,10.4,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="LstBxSchollClass_SelectionChanged" Grid.Row="1"/>
+        <ListBox x:Name="LstBxStudent" HorizontalAlignment="Left" Height="249" Margin="23.6,10.4,0,0" VerticalAlignment="Top" Width="154" Grid.RowSpan="2" SelectionChanged="LstBxStudent_SelectionChanged" Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="BtnShow" Content="Zeige alle Schüler" HorizontalAlignment="Left" Margin="54,5.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnShow_Click" Height="20"/>
+        <Button x:Name="BtnAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="54,30.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnEdit_Click" Height="20"/>
+        <Button x:Name="BtnEdit" Content="Bearbeiten" HorizontalAlignment="Left" Margin="54,55.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnAdd_Click" Height="20"/>
+        <Button x:Name="BtnDelete" Content="Löschen" HorizontalAlignment="Left" Margin="54,80.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnDelete_Click" Height="20"/>
+        <Button x:Name="BtnLink" Content="Zuweisen" HorizontalAlignment="Left" Margin="0.8,10.4,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="BtnLink_Click" Grid.Row="1" Grid.Column="1"/>
         <TextBox x:Name="TxbSchoolClass" HorizontalAlignment="Left" Height="23" Margin="54,10,0,0" TextWrapping="Wrap" Text="Schulklasse" VerticalAlignment="Top" Width="100" FontWeight="Bold" TextAlignment="Center" FontSize="14" IsEnabled="False"/>
-        <TextBox x:Name="TxbStudent" HorizontalAlignment="Left" Height="23" Margin="318,10,0,0" TextWrapping="Wrap" Text="Schüler" VerticalAlignment="Top" Width="154" TextAlignment="Center" FontWeight="Bold" FontSize="14" IsEnabled="False"/>
+        <TextBox x:Name="TxbStudent" HorizontalAlignment="Left" Height="23" Margin="23.6,10,0,0" TextWrapping="Wrap" Text="Schüler" VerticalAlignment="Top" Width="154" TextAlignment="Center" FontWeight="Bold" FontSize="14" IsEnabled="False" Grid.Column="2"/>
     </Grid>
 </Window>

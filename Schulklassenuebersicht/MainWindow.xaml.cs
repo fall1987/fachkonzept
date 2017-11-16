@@ -23,22 +23,26 @@ namespace Schulklassenuebersicht
         public MainWindow()
         {
             InitializeComponent();
-            Datenerhaltung db = new Datenerhaltung();          
+            Datenerhaltung db = new Datenerhaltung();
+            
         }
 
         private void LstBxSchollClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
         {
-
+            LstBxStudent.Items.Add("Student 1");
         }
 
         private void LstBxStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (true/*Student in Class*/)
+            {
+                BtnLink.Content = "Entfernen";
+            }
         }
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)
@@ -48,12 +52,13 @@ namespace Schulklassenuebersicht
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowAdd wa = new WindowAdd();
+            wa.Show();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+ 
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
