@@ -61,7 +61,7 @@ namespace Schulklassenuebersicht
 
         private DataTable SortByName(DataTable data)
         {            
-            data.DefaultView.Sort = "ID ";
+            data.DefaultView.Sort = "Name";
             return data;
         }
     }
