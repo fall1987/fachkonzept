@@ -81,7 +81,7 @@ namespace Schulklassenuebersicht
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((sender as ListView).SelectedItem != null)
+            if ((sender as ListView).SelectedItem != null && LstBxVwStudent.SelectedItems.Count == 0)
             {
                 LstBxVwStudent.DisplayMemberPath = "ID";
                 LstBxVwStudent.DisplayMemberPath = "Name";
