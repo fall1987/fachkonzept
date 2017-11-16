@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,17 +10,17 @@ namespace Schulklassenuebersicht
     class Fachkonzept : IFachkonzept
     {
         private Datenerhaltung datenHaltung = new Datenerhaltung();
-        private List<string> students;
-        private List<string> schoolClasses;
+        private DataTable students;
+        private DataTable schoolClasses;
 
-        public List<string> GetAllClasses()
+        public DataTable GetAllClasses()
         {
-            return schoolClasses = new List<string>();            
+            return schoolClasses = new DataTable();            
         }
 
-        public List<string> GetStudentsByClass(string schoolClass)
+        public DataTable GetStudentsByClass(string schoolClass)
         {
-            return students = new List<string>();
+            return students = new DataTable();
         }
 
         public void ChangeStudent(string name)
@@ -38,13 +39,3 @@ namespace Schulklassenuebersicht
         }
     }
 }
-
-
-/*
- * List<string> GetAllClasses();
-        List<string> GetStudentsByClass(string schoolClass);
-        void ChangeStudent(string name);
-        void RemoveStudent(string name);
-        void RemoveClass(string schoolClass);
-        
-*/
