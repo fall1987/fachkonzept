@@ -21,6 +21,7 @@ namespace Schulklassenuebersicht
         
     {
         Fachkonzept fachkonzept = new Fachkonzept();
+        bool isStudent = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -72,8 +73,9 @@ namespace Schulklassenuebersicht
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             WindowAdd wa = new WindowAdd();
-            wa.isStudent = true;
+            wa.isStudent = isStudent;
             wa.Show();
+
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -108,6 +110,44 @@ namespace Schulklassenuebersicht
             LstBxVwSchoolClasses.DisplayMemberPath = "ID";
             LstBxVwSchoolClasses.DisplayMemberPath = "Name";
             LstBxVwSchoolClasses.ItemsSource = fachkonzept.GetAllClasses().DefaultView;
+        }
+
+        private void ListView_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("Focused |" + (sender as ListView).Name);
+
+            switch ((sender as ListView).Name)
+            {
+                case "LstBxVwStudent":
+                    BtnAdd.Content = "Schüler hinzufügen";
+                    isStudent = true;
+                    BtnAdd.IsEnabled = true;
+                    break;
+                case "LstBxVwSchoolClasses":
+                    BtnAdd.Content = "Klasse hinzufügen";
+                    isStudent = false;
+                    BtnAdd.IsEnabled = true;
+                    break;
+            }
+        }
+
+        private void ListView_LostFocus(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as ListView).Name)
+            {
+                case "LstBxVwStudent":
+                    BtnAdd.Content = "Schüler hinzufügen";
+                    isStudent = true;
+                    BtnAdd.IsEnabled = true;
+                    break;
+                case "LstBxVwSchoolClasses":
+                    BtnAdd.Content = "Klasse hinzufügen";
+                    isStudent = false;
+                    BtnAdd.IsEnabled = true;
+                    break;
+            }
+        
         }
     }
 }

@@ -19,12 +19,12 @@
         </Grid.RowDefinitions>
         <Button x:Name="BtnShow" Content="Zeige alle Schüler" HorizontalAlignment="Left" Margin="54,5.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnShow_Click" Height="20"/>
         <Button x:Name="BtnEdit1" Content="Bearbeiten" HorizontalAlignment="Left" Margin="54,30.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnEdit_Click" Height="20"/>
-        <Button x:Name="BtnAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="54,55.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnAdd_Click" Height="20"/>
+        <Button x:Name="BtnAdd" Content="Hinzufügen" IsEnabled="False" HorizontalAlignment="Left" Margin="54,55.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnAdd_Click" Height="20"/>
         <Button x:Name="BtnDelete" Content="Löschen" HorizontalAlignment="Left" Margin="54,80.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Click="BtnDelete_Click" Height="20"/>
         <Button x:Name="BtnLink" Content="Zuweisen" HorizontalAlignment="Left" Margin="0.8,10.4,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="BtnLink_Click" Grid.Row="1" Grid.Column="1"/>
         <TextBox x:Name="TxbSchoolClass" HorizontalAlignment="Left" Height="23" Margin="54,10,0,0" TextWrapping="Wrap" Text="Schulklasse" VerticalAlignment="Top" Width="100" FontWeight="Bold" TextAlignment="Center" FontSize="14" IsEnabled="False"/>
         <TextBox x:Name="TxbStudent" HorizontalAlignment="Left" Height="23" Margin="23.6,10,0,0" TextWrapping="Wrap" Text="Schüler" VerticalAlignment="Top" Width="154" TextAlignment="Center" FontWeight="Bold" FontSize="14" IsEnabled="False" Grid.Column="2"/>
-        <ListView x:Name="LstBxVwStudent" Grid.Column="2" HorizontalAlignment="Left" Height="249" Margin="24,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Grid.RowSpan="2" SelectionChanged="LstBxVwStudent_SelectionChanged">
+        <ListView x:Name="LstBxVwStudent" Grid.Column="2" HorizontalAlignment="Left" Height="249" Margin="24,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Grid.RowSpan="2" SelectionChanged="LstBxVwStudent_SelectionChanged" Focusable="True" GotFocus="ListView_GotFocus" LostFocus="ListView_LostFocus">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="ID" Width="30" />
@@ -32,7 +32,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="LstBxVwSchoolClasses" HorizontalAlignment="Left" Height="139" Margin="54,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" SelectionChanged="LstBxVwSchoolClasses_SelectionChanged">
+        <ListView x:Name="LstBxVwSchoolClasses" HorizontalAlignment="Left" Height="139" Margin="54,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" SelectionChanged="LstBxVwSchoolClasses_SelectionChanged" Focusable="True" GotFocus="ListView_GotFocus">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="ID" Width="30" />
