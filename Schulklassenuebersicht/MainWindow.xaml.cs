@@ -72,12 +72,14 @@ namespace Schulklassenuebersicht
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             WindowAdd wa = new WindowAdd();
+            wa.isStudent = true;
             wa.Show();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            fachkonzept.RemoveStudent(Convert.ToInt16(((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0]));
+            MessageBox.Show("Schüler erfolgreich gelöscht");
         }
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
