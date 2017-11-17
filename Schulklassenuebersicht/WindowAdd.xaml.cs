@@ -19,6 +19,7 @@ namespace Schulklassenuebersicht
         public bool isStudent = false;
         string msgText;
         Fachkonzept fachkonzept = new Fachkonzept();
+        MainWindow mw = App.Current.MainWindow as MainWindow;
         public WindowAdd()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace Schulklassenuebersicht
             if (isStudent)
             {
             fachkonzept.AddStudent(TxbStudentName.Text);
+            mw.UpdateListBxViews();
             MessageBox.Show(msgText);
             TxbStudentName.Text = "";
             }

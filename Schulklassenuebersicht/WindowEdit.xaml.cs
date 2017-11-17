@@ -18,6 +18,7 @@ namespace Schulklassenuebersicht
     public partial class WindowEdit : Window
     {
         Fachkonzept fachkonzept = new Fachkonzept();
+        MainWindow mw = App.Current.MainWindow as MainWindow;
         public WindowEdit()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace Schulklassenuebersicht
         {
             fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 1);
             MessageBox.Show("Schüler erfolgreich bearbeitet");
+            mw.UpdateListBxViews();
             this.Close();
         }
 
