@@ -25,6 +25,7 @@ namespace Schulklassenuebersicht
             InitializeComponent();
             if (isStudent)
             {
+                LblName.Content = "Name des Schülers";
                 msgText = "Schüler erfolgreich angelegt";
             }
             else
@@ -32,6 +33,8 @@ namespace Schulklassenuebersicht
                 msgText = "Klasse erfolgreich angelegt";
                 LblName.Content = "Name der Klasse";
             }
+
+            
 
         }
 
@@ -46,10 +49,10 @@ namespace Schulklassenuebersicht
         {
             if (isStudent)
             {
-            fachkonzept.AddStudent(TxbStudentName.Text);
-            mw.UpdateListBxViews();
-            MessageBox.Show(msgText);
-            TxbStudentName.Text = "";
+                fachkonzept.AddStudent(TxbStudentName.Text);
+                mw.UpdateListBxViews();
+                MessageBox.Show(msgText);
+                TxbStudentName.Text = "";
             }
             else
             {
@@ -57,6 +60,8 @@ namespace Schulklassenuebersicht
                 MessageBox.Show(msgText);
                 TxbStudentName.Text = "";
             }
+
+            mw.UpdateListBxViews();
         }
     }
 }
