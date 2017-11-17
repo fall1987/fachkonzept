@@ -16,23 +16,35 @@ namespace Schulklassenuebersicht
 {
     public partial class WindowAdd : Window
     {
+        public bool isStudent = false;
+        string msgText;
         Fachkonzept fachkonzept = new Fachkonzept();
         MainWindow mw = App.Current.MainWindow as MainWindow;
         public WindowAdd()
         {
             InitializeComponent();
-            
+            if (!isStudent)
+            {
+                msgText = "Klasse erfolgreich angelegt";
+            }
+            else
+            {
+                msgText = "Schüler erfolgreich angelegt";
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+
             this.Close();
+
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             fachkonzept.AddStudent(TxbStudentName.Text);
-            MessageBox.Show("Schüler erfolgreich angelegt");
+            MessageBox.Show(msgText);
             TxbStudentName.Text = "";
             mw.UpdateListBxViews();
         }
