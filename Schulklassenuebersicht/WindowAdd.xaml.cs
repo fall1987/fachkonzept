@@ -22,13 +22,14 @@ namespace Schulklassenuebersicht
         public WindowAdd()
         {
             InitializeComponent();
-            if (!isStudent)
+            if (isStudent)
             {
-                msgText = "Klasse erfolgreich angelegt";
+                msgText = "Schüler erfolgreich angelegt";
             }
             else
             {
-                msgText = "Schüler erfolgreich angelegt";
+                msgText = "Klasse erfolgreich angelegt";
+                LblName.Content = "Name der Klasse";
             }
 
         }
@@ -42,9 +43,18 @@ namespace Schulklassenuebersicht
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (isStudent)
+            {
             fachkonzept.AddStudent(TxbStudentName.Text);
             MessageBox.Show(msgText);
             TxbStudentName.Text = "";
+            }
+            else
+            {
+                fachkonzept.AddSchoolClass(TxbStudentName.Text);
+                MessageBox.Show(msgText);
+                TxbStudentName.Text = "";
+            }
         }
     }
 }
