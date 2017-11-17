@@ -17,9 +17,11 @@ namespace Schulklassenuebersicht
     public partial class WindowAdd : Window
     {
         Fachkonzept fachkonzept = new Fachkonzept();
+        MainWindow mw = App.Current.MainWindow as MainWindow;
         public WindowAdd()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,6 +34,7 @@ namespace Schulklassenuebersicht
             fachkonzept.AddStudent(TxbStudentName.Text);
             MessageBox.Show("Schüler erfolgreich angelegt");
             TxbStudentName.Text = "";
+            mw.UpdateListBxViews();
         }
     }
 }

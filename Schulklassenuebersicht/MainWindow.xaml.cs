@@ -96,7 +96,7 @@ namespace Schulklassenuebersicht
             //MessageBox.Show(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString());
         }
 
-        private void UpdateListBxViews()
+        public void UpdateListBxViews()
         {
             LstBxVwStudent.DisplayMemberPath = "ID";
             LstBxVwStudent.DisplayMemberPath = "Name";
