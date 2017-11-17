@@ -13,6 +13,12 @@ namespace Schulklassenuebersicht
         private DataTable students;
         private DataTable schoolClasses;
 
+
+        public DataTable GetClassByID(int classID)
+        {                     
+            return datenHaltung.GetSchoolClass(classID);
+        }
+
         public DataTable GetAllClasses()
         {
             schoolClasses = sortByName(datenHaltung.GetAllSchoolClass());
@@ -48,6 +54,12 @@ namespace Schulklassenuebersicht
         public void RemoveClass(int SchoolClassId)
         {
             datenHaltung.RemoveSchoolClass(SchoolClassId);
+            datenHaltung.RemoveRelation(SchoolClassId);
+        }
+
+        public void RemoveClassFromStudent(int SchoolClassId, int StudentID)
+        {
+            datenHaltung.RemoveRelation(SchoolClassId, StudentID);
         }
 
         public void AddStudent(string name)
@@ -59,10 +71,19 @@ namespace Schulklassenuebersicht
             datenHaltung.SetSchoolClass(name);
         }
 
+        public DataTable GetAllStudentsWithoutClass()
+        {
+            students = datenHaltung.GetAllStudentsWithoutClass();
+
+            return students;
+        }
+
         private DataTable sortByName(DataTable data)
         {            
             data.DefaultView.Sort = "Name";
             return data;
         }
+
+
     }
 }

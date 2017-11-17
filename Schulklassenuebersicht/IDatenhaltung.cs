@@ -7,6 +7,7 @@ namespace Schulklassenuebersicht
        void SetSchoolClass(string name);
        DataTable GetSchoolClass(int id);
        DataTable GetAllSchoolClass();
+        DataTable GetAllStudentsWithoutClass();
        void RemoveSchoolClass(int id);
        void SetStudent(string name);
        DataTable GetStudent(int id);

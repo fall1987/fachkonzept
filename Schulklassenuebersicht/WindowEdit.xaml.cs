@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Schulklassenuebersicht
 {
@@ -26,8 +16,8 @@ namespace Schulklassenuebersicht
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 1);
-            MessageBox.Show("Schüler erfolgreich bearbeitet");
+            fachkonzept.ChangeStudent(Convert.ToInt16(StudentID.Content), TxbStudentName.Text, 0);
+            MessageBox.Show("Schüler erfolgreich bearbeitet.");
             mw.UpdateListBxViews();
             this.Close();
         }
@@ -35,6 +25,12 @@ namespace Schulklassenuebersicht
         private void BtnAbort_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnDelRelation_Click(object sender, RoutedEventArgs e)
+        {
+            fachkonzept.RemoveClassFromStudent( Int32.Parse(TxbClassID.Text), Int32.Parse(StudentID.Content.ToString()));
+            TxbClassName.Text = "";
         }
     }
 }

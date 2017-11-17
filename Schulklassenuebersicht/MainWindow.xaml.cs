@@ -58,9 +58,11 @@ namespace Schulklassenuebersicht
             if (LstBxVwStudent.SelectedItems.Count != 0)
             {
                 we.TxbStudentName.Text = ((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[1].ToString();
-                if (((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString() != "")
+                if (((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString() != "")
                 {
                     we.StudentID.Content = ((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString();
+                    we.TxbClassID.Text = ((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[2].ToString();
+                    we.TxbClassName.Text = we.TxbClassID.Text != "" ? fachkonzept.GetClassByID(Int32.Parse(we.TxbClassID.Text)).Rows[0][1].ToString() : "";
                 }
                 we.Show();
             }
@@ -72,17 +74,26 @@ namespace Schulklassenuebersicht
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            WindowAdd wa = new WindowAdd();
-            wa.isStudent = isStudent;
+            WindowAdd wa = new WindowAdd(isStudent);
             wa.Show();
 
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            fachkonzept.RemoveStudent(Convert.ToInt16(((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0]));
+            string msg;
+            if (isStudent)
+            {
+                fachkonzept.RemoveStudent(Convert.ToInt16(((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0]));
+                msg = "Schüler gelöscht.";
+            } else
+            {
+                fachkonzept.RemoveClass(Convert.ToInt16(((DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0]));
+                msg = "Klasse gelöscht";
+            }
+            
             UpdateListBxViews();
-            MessageBox.Show("Schüler erfolgreich gelöscht");
+            MessageBox.Show(msg);
         }
 
         private void LstBxVwSchoolClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -91,7 +102,7 @@ namespace Schulklassenuebersicht
             {
                 LstBxVwStudent.DisplayMemberPath = "ID";
                 LstBxVwStudent.DisplayMemberPath = "Name";
-                LstBxVwStudent.ItemsSource = fachkonzept.GetStudentsByClass(Convert.ToInt32(((System.Data.DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString())).DefaultView;
+                LstBxVwStudent.ItemsSource = fachkonzept.GetStudentsByClass(Convert.ToInt32(((DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString())).DefaultView;
             }
         }
 
@@ -115,19 +126,21 @@ namespace Schulklassenuebersicht
         private void ListView_GotFocus(object sender, RoutedEventArgs e)
         {
 
-            MessageBox.Show("Focused |" + (sender as ListView).Name);
-
             switch ((sender as ListView).Name)
             {
                 case "LstBxVwStudent":
                     BtnAdd.Content = "Schüler hinzufügen";
+                    BtnDelete.Content = "Schüler löschen";
                     isStudent = true;
                     BtnAdd.IsEnabled = true;
+                    BtnDelete.IsEnabled = true;
                     break;
                 case "LstBxVwSchoolClasses":
                     BtnAdd.Content = "Klasse hinzufügen";
+                    BtnDelete.Content = "Klasse löschen";
                     isStudent = false;
                     BtnAdd.IsEnabled = true;
+                    BtnDelete.IsEnabled = true;
                     break;
             }
         }
@@ -148,6 +161,13 @@ namespace Schulklassenuebersicht
                     break;
             }
         
+        }
+
+        private void BtnStudentWithoutClass_Click(object sender, RoutedEventArgs e)
+        {
+            LstBxVwStudent.DisplayMemberPath = "ID";
+            LstBxVwStudent.DisplayMemberPath = "Name";
+            LstBxVwStudent.ItemsSource = fachkonzept.GetAllStudentsWithoutClass().DefaultView;
         }
     }
 }

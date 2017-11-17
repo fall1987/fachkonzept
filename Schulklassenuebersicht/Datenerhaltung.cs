@@ -114,6 +114,19 @@ namespace Schulklassenuebersicht
             return dt;
         }
 
+        public DataTable GetAllStudentsWithoutClass()
+        {
+            string path = GetProjectPath();
+            SQLiteConnection connection = new SQLiteConnection("Data source=" + path + "Datenhaltung.db");
+            SQLiteCommand cmd = connection.CreateCommand();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            connection.Open();
+            cmd.CommandText = "Select * FROM Student WHERE Fk_ID_SchoolClass IS NULL;";
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
         public DataTable GetAllStudentByClass(int SchoolclassID)
         {
             string path = GetProjectPath();
@@ -178,6 +191,8 @@ namespace Schulklassenuebersicht
             cmd.ExecuteNonQuery();
             connection.Close();
         }
+
+        
         #endregion
 
         #region initialize Class
