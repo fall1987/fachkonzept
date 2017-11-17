@@ -79,6 +79,7 @@ namespace Schulklassenuebersicht
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             fachkonzept.RemoveStudent(Convert.ToInt16(((DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0]));
+            UpdateListBxViews();
             MessageBox.Show("Schüler erfolgreich gelöscht");
         }
 
@@ -98,7 +99,7 @@ namespace Schulklassenuebersicht
             //MessageBox.Show(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString());
         }
 
-        public void UpdateListBxViews()
+        internal void UpdateListBxViews()
         {
             LstBxVwStudent.DisplayMemberPath = "ID";
             LstBxVwStudent.DisplayMemberPath = "Name";

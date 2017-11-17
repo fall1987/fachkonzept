@@ -44,9 +44,10 @@ namespace Schulklassenuebersicht
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             fachkonzept.AddStudent(TxbStudentName.Text);
+            mw.UpdateListBxViews();
             MessageBox.Show(msgText);
             TxbStudentName.Text = "";
-            mw.UpdateListBxViews();
+            
         }
     }
 }
