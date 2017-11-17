@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace Schulklassenuebersicht
 {
@@ -13,7 +8,6 @@ namespace Schulklassenuebersicht
         private DataTable students;
         private DataTable schoolClasses;
 
-
         public DataTable GetClassByID(int classID)
         {                     
             return datenHaltung.GetSchoolClass(classID);
@@ -22,14 +16,12 @@ namespace Schulklassenuebersicht
         public DataTable GetAllClasses()
         {
             schoolClasses = sortByName(datenHaltung.GetAllSchoolClass());
-
             return schoolClasses;
         }
 
         public DataTable GetAllStudents()
         {
-            students = sortByName(datenHaltung.GetAllStudent());
-            
+            students = sortByName(datenHaltung.GetAllStudent());            
             return students;
         }
 
@@ -40,8 +32,7 @@ namespace Schulklassenuebersicht
         }
 
         public void ChangeStudent(int id, string name, int classId)
-        {            
-            
+        {                        
             datenHaltung.UpdateStudent(id, name);
             datenHaltung.SetRelation(classId, id);
         }
@@ -74,7 +65,6 @@ namespace Schulklassenuebersicht
         public DataTable GetAllStudentsWithoutClass()
         {
             students = datenHaltung.GetAllStudentsWithoutClass();
-
             return students;
         }
 
@@ -83,7 +73,5 @@ namespace Schulklassenuebersicht
             data.DefaultView.Sort = "Name";
             return data;
         }
-
-
     }
 }

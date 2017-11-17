@@ -1,32 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data;
 
 namespace Schulklassenuebersicht
 {
-
-    public partial class MainWindow : Window
-        
+    public partial class MainWindow : Window       
     {
         Fachkonzept fachkonzept = new Fachkonzept();
         bool isStudent = false;
         public MainWindow()
         {
             InitializeComponent();
-            UpdateListBxViews();
-            
+            UpdateListBxViews();            
         }
 
         private void BtnLink_Click(object sender, RoutedEventArgs e)
@@ -42,8 +28,6 @@ namespace Schulklassenuebersicht
             {
                MessageBox.Show(es.StackTrace);
             }
-            
-            
         }
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)
@@ -76,7 +60,6 @@ namespace Schulklassenuebersicht
         {
             WindowAdd wa = new WindowAdd(isStudent);
             wa.Show();
-
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -90,8 +73,7 @@ namespace Schulklassenuebersicht
             {
                 fachkonzept.RemoveClass(Convert.ToInt16(((DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0]));
                 msg = "Klasse gelöscht";
-            }
-            
+            }            
             UpdateListBxViews();
             MessageBox.Show(msg);
         }
@@ -105,13 +87,7 @@ namespace Schulklassenuebersicht
                 LstBxVwStudent.ItemsSource = fachkonzept.GetStudentsByClass(Convert.ToInt32(((DataRowView)(LstBxVwSchoolClasses.SelectedItem)).Row.ItemArray[0].ToString())).DefaultView;
             }
         }
-
-
-        private void LstBxVwStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //MessageBox.Show(((System.Data.DataRowView)(LstBxVwStudent.SelectedItem)).Row.ItemArray[0].ToString());
-        }
-
+        
         internal void UpdateListBxViews()
         {
             LstBxVwStudent.DisplayMemberPath = "ID";
@@ -125,7 +101,6 @@ namespace Schulklassenuebersicht
 
         private void ListView_GotFocus(object sender, RoutedEventArgs e)
         {
-
             switch ((sender as ListView).Name)
             {
                 case "LstBxVwStudent":
@@ -159,8 +134,7 @@ namespace Schulklassenuebersicht
                     isStudent = false;
                     BtnAdd.IsEnabled = true;
                     break;
-            }
-        
+            }        
         }
 
         private void BtnStudentWithoutClass_Click(object sender, RoutedEventArgs e)

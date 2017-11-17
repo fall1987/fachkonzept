@@ -1,10 +1,8 @@
 ﻿using System;
-
 using System.Windows;
 
 namespace Schulklassenuebersicht
 {
-
     public partial class WindowEdit : Window
     {
         Fachkonzept fachkonzept = new Fachkonzept();

@@ -6,11 +6,7 @@ using System.Data;
 namespace Schulklassenuebersicht
 {
     class Datenerhaltung :IDatenhaltung
-    {
-     
-        /// <summary>
-        /// Konstructor
-        /// </summary>
+    {     
         public Datenerhaltung ()
         {
             string path = GetProjectPath();
@@ -207,8 +203,7 @@ namespace Schulklassenuebersicht
         }
 
         private bool ExsitsDatabase(string path)
-        {
-            
+        {            
             if (File.Exists(path + "Datenhaltung.db"))
             {
                 return true;
